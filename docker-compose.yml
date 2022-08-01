@@ -1,0 +1,24 @@
+services:
+  web:
+    build:
+      context: .
+      args:
+        - PORT=8080
+
+  nginx:
+    build:
+      context: .
+      dockerfile: nginx.Dockerfile
+    environment:
+      VIRTUAL_HOST:
+      LETSENCRYPT_HOST:
+    depends_on:
+      - web
+    networks:
+      - nginx-proxy
+      - default
+
+networks:
+  default:
+  nginx-proxy:
+    external: true

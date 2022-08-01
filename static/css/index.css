@@ -1,0 +1,146 @@
+:root {
+    --bg-color: white;
+    --light-color: lightgrey;
+    --dark-color: darkgrey;
+    --accent-color: #209CEE;
+    --text-color: black;
+
+    --topbar-height: 60px;
+}
+
+body {
+    margin: 0px;
+    font-family: 'VisiaPro';
+	font-style: normal;
+	font-weight: normal;
+    font-size: 20px;
+    overflow-y: scroll;
+}
+
+li {
+    margin-top: 10px;
+    text-align: justify;
+}
+
+button {
+    height: 40px;
+    margin-left: 5px;
+    margin-right: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: var(--text-color);
+    background-color: transparent;
+    border: 1px solid var(--light-color);
+    border-radius: 5px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.center-column-container {
+    display: flex;
+    justify-content: center;
+    width: inherit;
+}
+
+.topbar-container {
+    border-bottom: 1px solid var(--light-color);
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    height: var(--topbar-height);
+}
+
+.topbar-element {
+    box-sizing: border-box;
+    height: var(--topbar-height);
+    line-height: var(--topbar-height);
+    cursor: pointer;
+    border-top: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+}
+
+.avatar-container {
+    display: flex;
+    justify-content: center;
+    width: inherit;
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+
+.avatar {
+    object-fit: cover;
+}
+
+.text {
+    width: inherit;
+    text-align: center;
+}
+
+.name {
+    font-size: 30px;
+    margin-bottom: 50px;
+}
+
+.cn-links-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.cn-link {
+    width: 56px;
+    height: 56px;
+    margin: 2px;
+    /* margin-left: 12px;
+    margin-right: 12px;
+    margin-top: 2px;
+    margin-bottom: 2px; */
+    object-fit: cover;
+}
+.cn-link:hover {
+    width: 60px;
+    height: 60px;
+    margin: 0px;
+    /* margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 0px;
+    margin-bottom: 0px; */
+}
+
+.title {
+    margin-top: 50px;
+    font-size: 30px;
+    text-align: left;
+}
+
+.subtitle {
+    margin-top: 20px;
+}
+
+.horizontal-button-container {
+    display: flex;
+    justify-content: center;
+}
+
+.text-justify-align {
+    margin-top: 10px;
+    text-align: justify;
+}
+.text-justify-align a:active {color: var(--text-color);}
+.text-justify-align a:visited {color: var(--text-color);}
+
+.margin-top-50px {
+    margin-top: 50px;
+}
+
+.tail {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    text-align: center;
+    color: var(--dark-color);
+}
+.tail a {text-decoration: none;}
+.tail a:active {color: var(--dark-color);}
+.tail a:visited {color: var(--dark-color);}

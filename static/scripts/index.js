@@ -1,53 +1,51 @@
-/* Tabs controll */
+/* Portfolio open and close */
 
-const tabs = document.getElementsByClassName("data");
-const tabSwitches = document.getElementsByClassName("topbar-element");
-
-function activateTabsSwitch(ts) {
-    ts.style.color = "var(--accent-color)";
-    ts.style.borderBottom = "3px solid var(--accent-color)";
+function getTop(i, n, clientHeight) {
+    return `${(clientHeight * ((n - 1 - i)/n)).toString()}px`;
 }
 
-function deactivateTabsSwitch(ts) {
-    ts.style.color = "var(--text-color)";
-    ts.style.borderBottom = "3px solid transparent";
+function getHeight(i, n, clientHeight) {
+    return `${(clientHeight * ((i + 1)/n)).toString()}px`;
 }
 
-function activateTab(t) {
-    t.style.display = "block";
+function openPortfolio() {
+    console.log("go-to-portfolio-button was pressed");
+
+    const portfolioContainer = document.getElementById("portfolio");
+    portfolioContainer.style.display = "block";
+
+    let n = 10;
+    const clientHeight = document.documentElement.clientHeight;
+    const clientWidth = document.documentElement.clientWidth;
+    portfolioContainer.style.width = `${clientWidth}px`;
+    for (let i = 0; i < n; i++) {
+        setTimeout(() => {
+            portfolioContainer.style.top = getTop(i, n, clientHeight);
+            portfolioContainer.style.height = getHeight(i, n, clientHeight);
+        }, 20 * (i + 1));
+    }
 }
 
-function deactivateTab(t) {
-    t.style.display = "none";
+function closePortfolio() {
+    console.log("go-to-portfolio-button was pressed");
+
+    const portfolioContainer = document.getElementById("portfolio");
+
+    let n = 10;
+    const clientHeight = document.documentElement.clientHeight;
+    const clientWidth = document.documentElement.clientWidth;
+    portfolioContainer.style.width = `${clientWidth}px`;
+    for (let i = 0; i < n; i++) {
+        setTimeout(() => {
+            portfolioContainer.style.top = getTop(n - 1 - i, n, clientHeight);
+            portfolioContainer.style.height = getHeight(n - 1 - i, n, clientHeight);
+        }, 20 * (i + 1));
+    }
+    setTimeout(() => {portfolioContainer.style.display = "none"}, n * 20);
 }
 
-function switchTabs(currentTabSwitchId) {
-    [...tabSwitches].forEach(ts => {
-        console.log(`${currentTabSwitchId} ? ${ts.id}`);
-        if (currentTabSwitchId == ts.id) {
-            activateTabsSwitch(ts);
-        }
-        else {
-            deactivateTabsSwitch(ts);
-        }
-    });
-
-    currentTabId = `${currentTabSwitchId}-data`;
-    [...tabs].forEach(t => {
-        if (currentTabId == t.id) {
-            activateTab(t);
-        }
-        else {
-            deactivateTab(t);
-        }
-    });
-}
-
-[...tabSwitches].forEach(tabsSwitch => {
-    tabsSwitch.addEventListener("click", (e) => {
-        switchTabs(e.target.id);
-    });
-});
+document.getElementById("go-to-portfolio-button").addEventListener("click", openPortfolio);
+document.getElementById("close-portfolio-button").addEventListener("click", closePortfolio);
 
 
 
@@ -81,5 +79,4 @@ window.onresize = resize;
 
 window.onload = () => {
     resize();
-    switchTabs('about-me');
 }

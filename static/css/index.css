@@ -1,11 +1,15 @@
 :root {
-    --bg-color: white;
+    --bg-color: #303030;
     --light-color: lightgrey;
     --dark-color: darkgrey;
     --accent-color: #209CEE;
-    --text-color: black;
+    --text-color: white;
 
     --topbar-height: 60px;
+}
+
+iframe {
+    border-radius: 20px;
 }
 
 body {
@@ -15,6 +19,8 @@ body {
 	font-weight: normal;
     font-size: 20px;
     overflow-y: scroll;
+    background-color: var(--bg-color);
+    color: var(--text-color);
 }
 
 li {
@@ -44,12 +50,12 @@ button {
 
 .topbar-container {
     border-bottom: 1px solid var(--light-color);
+    background-color: lightgoldenrodyellow;
 }
 
 .topbar {
     display: flex;
     justify-content: space-between;
-    height: var(--topbar-height);
 }
 
 .topbar-element {
@@ -144,3 +150,16 @@ button {
 .tail a {text-decoration: none;}
 .tail a:active {color: var(--dark-color);}
 .tail a:visited {color: var(--dark-color);}
+
+#portfolio {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 0px;
+    background-color: var(--bg-color);
+    border-top: solid 1px var(--text-color);
+}
+
+.portfolio-container {
+    margin-top: 20px;
+}
